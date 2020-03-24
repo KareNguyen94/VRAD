@@ -10,19 +10,30 @@ class Login extends Component {
     }
   }
 
+  updateNameState = (event) => {
+    this.setState({name: event.target.value})
+  }
+
+  updateEmailState = (event) => {
+    this.setState({email: event.target.value})
+  }
+
   render() {
     return (
       <form>
+        <label>Name</label>
         <input 
           type='text'
           placeholder=''
-          value={this.state.name}>
+          value={this.state.name}
+          onChange={this.updateNameState}>
         </input>
-
+        <label>Email</label>
         <input
           type='text'
           placeholder=''
-          value={this.state.email}>  
+          value={this.state.email}
+          onChange={this.updateEmailState}>  
         </input>
 
         <input 
