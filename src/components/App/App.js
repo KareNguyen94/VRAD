@@ -8,12 +8,14 @@ import {
 import './App.css';
 import Login from '../Login/Login.js';
 import AreaContainer from '../AreaContainer/AreaContainer.js';
+import ListingContainer from '../ListingContainer/ListingContainer.js'
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
-      areas: []
+      areas: [],
+      listings: []
     }
   }
 
@@ -37,6 +39,25 @@ class App extends Component {
       })
       .then(areas => this.setState({ areas }))
       .catch(error => console.log(error))
+
+    fetch('http://localhost:3001/api/v1/areas/590')
+      .then(response => response.json())
+      .then(rinoData => {
+        const listingPromises = rinoData.listings.map(listing => {
+          return fetch('http://localhost:3001' + listing)
+          .then(response => response.json())
+          .then(listingInfo => {
+            return {
+              name: listingInfo.name,
+              id: listingInfo.listing_id,
+            }
+          })
+            .catch(error => console.log(error))
+        })
+        return Promise.all(listingPromises)
+      })
+      .then(listings => this.setState({ listings }))
+      .catch(error => console.log(error))
   }
 
   render () {
@@ -49,6 +70,9 @@ class App extends Component {
           <Switch>
             <Route path='/areas'>
               <AreaContainer areas={this.state.areas} />
+            </Route>
+            <Route path='/listings'>
+              <ListingContainer listings={this.state.listings}/>
             </Route>
             <Route path='/'>
               <Login />
