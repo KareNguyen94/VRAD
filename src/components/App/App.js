@@ -1,6 +1,13 @@
 import React, { Component } from 'react';
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 import './App.css';
 import Login from '../Login/Login.js';
+import AreaContainer from '../AreaContainer/AreaContainer.js';
 
 class App extends Component {
   constructor() {
@@ -35,8 +42,19 @@ class App extends Component {
   render () {
     return (
       <div>
-        <h1>Welcome</h1>
-        <Login />
+        <header>
+          <h1>Welcome</h1>
+        </header>
+        <Router>
+          <Switch>
+            <Route path='/areas'>
+              <AreaContainer areas={this.state.areas} />
+            </Route>
+            <Route path='/'>
+              <Login />
+            </Route>
+          </Switch>
+        </Router>
       </div>
     )
   }

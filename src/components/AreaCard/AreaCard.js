@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 
 const AreaCard = (props) => {
-  const { area, name, about }
+  const { name, shortname, description } = props.area;
   return (
     <article>
-      <h2>{area}</h2>
-      <h3>{name}</h3>
-      <p>{about}</p>
+      <h2>{name}</h2>
+      <h3>{shortname}</h3>
+      <p>{description}</p>
       <button>View listings</button>
     </article>
   )
 }
+
+export default AreaCard;
