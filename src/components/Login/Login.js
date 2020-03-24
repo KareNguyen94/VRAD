@@ -21,7 +21,7 @@ class Login extends Component {
   }
 
   updatePurposeState = (event) => {
-    this.setState({email: event.target.value})
+    this.setState({purpose: event.target.value})
   }
 
   onLogin = (event) => {
@@ -34,15 +34,17 @@ class Login extends Component {
   render() {
     return (
       <form>
-        <label>Name</label>
+        <label htmlFor='name'>Name</label>
         <input 
+          name='name'
           type='text'
           placeholder=''
           value={this.state.name}
           onChange={this.updateNameState}>
         </input>
-        <label>Email</label>
+        <label htmlFor='email'>Email</label>
         <input
+          name='email'
           type='text'
           placeholder=''
           value={this.state.email}
@@ -51,25 +53,25 @@ class Login extends Component {
 
         <input 
           type="radio" 
-          name="purpose" 
-          value={this.state.purpose}
+          name="business" 
+          value="business"
           onChange={this.updatePurposeState}>
         </input>
-        <label for="business">Business</label>
+        <label htmlFor="business">Business</label>
         <input 
           type="radio" 
-          name="purpose" 
-          value={this.state.purpose}
+          name="vacation" 
+          value="vacation"
           onChange={this.updatePurposeState}>
         </input>
-        <label for="vacation">Vacation</label>
+        <label htmlFor="vacation">Vacation</label>
         <input 
           type="radio" 
-          name="purpose" 
-          value={this.state.purpose}
+          name="other" 
+          value="other"
           onChange={this.updatePurposeState}>
         </input>
-        <label for="other">Other</label>
+        <label htmlFor="other">Other</label>
         <button 
         onClick={this.onLogin}
         type="submit">
