@@ -6,7 +6,9 @@ class Login extends Component {
     super();
     this.state = {
       name: '',
-      email: ''
+      email: '',
+      purpose: '',
+      error: ''
     }
   }
 
@@ -16,6 +18,17 @@ class Login extends Component {
 
   updateEmailState = (event) => {
     this.setState({email: event.target.value})
+  }
+
+  updatePurposeState = (event) => {
+    this.setState({email: event.target.value})
+  }
+
+  onLogin = (event) => {
+    event.preventDefault();
+    if (!this.state.name || !this.state.email || !this.state.purpose) {
+      this.setState({error: '*All input fields required'})
+    }
   }
 
   render() {
@@ -39,21 +52,29 @@ class Login extends Component {
         <input 
           type="radio" 
           name="purpose" 
-          value="business">
+          value={this.state.purpose}
+          onChange={this.updatePurposeState}>
         </input>
         <label for="business">Business</label>
         <input 
           type="radio" 
           name="purpose" 
-          value="vacation">
+          value={this.state.purpose}
+          onChange={this.updatePurposeState}>
         </input>
         <label for="vacation">Vacation</label>
         <input 
           type="radio" 
           name="purpose" 
-          value="other">
+          value={this.state.purpose}
+          onChange={this.updatePurposeState}>
         </input>
         <label for="other">Other</label>
+        <button 
+        onClick={this.onLogin}
+        type="submit">
+        Login</button>
+        <p>{this.state.error}</p>
       </form>
     )
   }
