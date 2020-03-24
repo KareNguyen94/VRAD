@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 
 const AreaCard = (props) => {
   const { name, shortname, description } = props.area;

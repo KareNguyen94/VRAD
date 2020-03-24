@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React from 'react';
 import AreaCard from '../AreaCard/AreaCard.js';
 
 const AreaContainer = ({ areas }) => {
