@@ -34,47 +34,53 @@ class Login extends Component {
   render() {
     return (
       <form>
-        <label htmlFor='name'>Name</label>
-        <input 
+        <input
           name='name'
           type='text'
-          placeholder=''
+          placeholder='Your name'
           value={this.state.name}
           onChange={this.updateNameState}>
         </input>
-        <label htmlFor='email'>Email</label>
         <input
           name='email'
           type='text'
-          placeholder=''
+          placeholder='Your email address'
           value={this.state.email}
-          onChange={this.updateEmailState}>  
+          onChange={this.updateEmailState}>
         </input>
-
-        <input 
-          type="radio" 
-          name="business" 
-          value="business"
+        <select defaultValue='' onChange={this.updatePurposeState} required>
+          <option value='' disabled>Choose a purpose</option>
+          <option value='business'>Business</option>
+          <option value='vacation'>Vacation</option>
+          <option value='other'>Other</option>
+        </select>
+        <input
+          id='business-radio'
+          type='radio'
+          name='purpose'
+          value='business'
           onChange={this.updatePurposeState}>
         </input>
-        <label htmlFor="business">Business</label>
-        <input 
-          type="radio" 
-          name="vacation" 
-          value="vacation"
+        <label htmlFor='business-radio'>Business</label>
+        <input
+          id='vacation-radio'
+          type='radio'
+          name='purpose'
+          value='vacation'
           onChange={this.updatePurposeState}>
         </input>
-        <label htmlFor="vacation">Vacation</label>
-        <input 
-          type="radio" 
-          name="other" 
-          value="other"
+        <label htmlFor='vacation-radio'>Vacation</label>
+        <input
+          id='other-radio'
+          type='radio'
+          name='purpose'
+          value='other'
           onChange={this.updatePurposeState}>
         </input>
-        <label htmlFor="other">Other</label>
-        <button 
+        <label htmlFor='other-radio'>Other</label>
+        <button
         onClick={this.onLogin}
-        type="submit">
+        type='submit'>
         Login</button>
         <p>{this.state.error}</p>
       </form>
