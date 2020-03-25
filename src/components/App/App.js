@@ -8,14 +8,18 @@ import {
 import './App.css';
 import Login from '../Login/Login.js';
 import AreaContainer from '../AreaContainer/AreaContainer.js';
-import ListingContainer from '../ListingContainer/ListingContainer.js'
+import ListingContainer from '../ListingContainer/ListingContainer.js';
+import ListingDetail from '../ListingDetail/ListingDetail.js';
 
 class App extends Component {
   constructor() {
     super();
     this.state = {
       areas: [],
-      listings: []
+      listings: [],
+      detailedListing: {
+        features: []
+      },
     }
   }
 
@@ -58,6 +62,23 @@ class App extends Component {
       })
       .then(listings => this.setState({ listings }))
       .catch(error => console.log(error))
+
+    fetch('http://localhost:3001/api/v1/listings/3')
+      .then(response => response.json())
+      .then(listingData => {
+        const detailedListing = {
+          id: listingData.listing_id,
+          name: listingData.name,
+          street: listingData.address.street,
+          zip: listingData.address.zip,
+          beds: listingData.details.beds,
+          baths: listingData.details.baths,
+          cost: listingData.details.cost_per_night,
+          features: listingData.details.features
+        };
+        this.setState({ detailedListing });
+      })
+      .catch(error => console.log(error))
   }
 
   render () {
@@ -68,6 +89,9 @@ class App extends Component {
         </header>
         <Router>
           <Switch>
+            <Route path='/detail'>
+              <ListingDetail detailedListing={this.state.detailedListing} />
+            </Route>
             <Route path='/areas'>
               <AreaContainer areas={this.state.areas} />
             </Route>
