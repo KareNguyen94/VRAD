@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
 import './App.css';
 import Login from '../Login/Login.js';
@@ -15,70 +13,43 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      areas: [],
-      listings: [],
-      detailedListing: {
-        features: []
-      },
+      areas: []
     }
   }
 
   componentDidMount() {
+    this.fetchAreas();
+  }
+
+  fetchAreas = () => {
     fetch('http://localhost:3001/api/v1/areas')
       .then(response => response.json())
-      .then(areaData => {
-        const areaPromises = areaData.areas.map(area => {
-          return fetch('http://localhost:3001' + area.details)
-            .then(response => response.json())
-            .then(detail => {
-              return {
-                shortname: area.area,
-                name: detail.name,
-                description: detail.about
-              }
-            })
-            .catch(error => console.log(error))
-        })
+      .then(data => {
+        const areaPromises = data.areas.map(this.fetchAreaDetails);
         return Promise.all(areaPromises);
       })
       .then(areas => this.setState({ areas }))
       .catch(error => console.log(error))
+  }
 
-    fetch('http://localhost:3001/api/v1/areas/590')
+  fetchAreaDetails = (area) => {
+    return fetch('http://localhost:3001' + area.details)
       .then(response => response.json())
-      .then(rinoData => {
-        const listingPromises = rinoData.listings.map(listing => {
-          return fetch('http://localhost:3001' + listing)
-          .then(response => response.json())
-          .then(listingInfo => {
-            return {
-              name: listingInfo.name,
-              id: listingInfo.listing_id,
-            }
+      .then(details => {
+        return this.fetchListings(details)
+          .then(listings => {
+            details = {...details, listings}
+            return {...area, details}
           })
-            .catch(error => console.log(error))
-        })
-        return Promise.all(listingPromises)
       })
-      .then(listings => this.setState({ listings }))
-      .catch(error => console.log(error))
+  }
 
-    fetch('http://localhost:3001/api/v1/listings/3')
-      .then(response => response.json())
-      .then(listingData => {
-        const detailedListing = {
-          id: listingData.listing_id,
-          name: listingData.name,
-          street: listingData.address.street,
-          zip: listingData.address.zip,
-          beds: listingData.details.beds,
-          baths: listingData.details.baths,
-          cost: listingData.details.cost_per_night,
-          features: listingData.details.features
-        };
-        this.setState({ detailedListing });
-      })
-      .catch(error => console.log(error))
+  fetchListings = (details) => {
+    const listingPromises = details.listings.map(listing => {
+      return fetch('http://localhost:3001' + listing)
+        .then(response => response.json())
+    });
+    return Promise.all(listingPromises);
   }
 
   render () {
@@ -88,20 +59,18 @@ class App extends Component {
           <h1>Welcome</h1>
         </header>
         <Router>
-          <Switch>
-            <Route path='/detail'>
-              <ListingDetail detailedListing={this.state.detailedListing} />
-            </Route>
-            <Route path='/areas'>
-              <AreaContainer areas={this.state.areas} />
-            </Route>
-            <Route path='/listings'>
-              <ListingContainer listings={this.state.listings}/>
-            </Route>
-            <Route path='/'>
-              <Login />
-            </Route>
-          </Switch>
+          <Route exact path='/'>
+            <Login />
+          </Route>
+          <Route path='/detail'>
+            <ListingDetail detailedListing={this.state.detailedListing} />
+          </Route>
+          <Route path='/areas'>
+            <AreaContainer areas={this.state.areas} />
+          </Route>
+          <Route path='/listings'>
+            <ListingContainer listings={this.state.listings}/>
+          </Route>
         </Router>
       </div>
     )
