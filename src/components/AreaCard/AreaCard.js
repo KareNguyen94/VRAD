@@ -1,12 +1,13 @@
 import React from 'react';
 
 const AreaCard = (props) => {
-  const { name, shortname, description } = props.area;
+  const { area, details } = props;
+  const { name, about } = details;
   return (
     <article>
       <h2>{name}</h2>
-      <h3>{shortname}</h3>
-      <p>{description}</p>
+      <h3>{area}</h3>
+      <p>{about}</p>
       <button>View listings</button>
     </article>
   )

@@ -1,8 +1,5 @@
 import React, { Component } from 'react';
-import {
-  BrowserRouter as Router,
-  Route
-} from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import './App.css';
 import Login from '../Login/Login.js';
 import AreaContainer from '../AreaContainer/AreaContainer.js';
@@ -60,21 +57,14 @@ class App extends Component {
       <div>
         <header>
           <h1>Welcome</h1>
+          <Link to='/areas'>Areas</Link>
         </header>
-        <Router>
-          <Route exact path='/'>
-            <Login />
-          </Route>
-          <Route path='/detail'>
-            <ListingDetail detailedListing={this.state.detailedListing} />
-          </Route>
-          <Route path='/areas'>
-            <AreaContainer areas={this.state.areas} />
-          </Route>
-          <Route path='/listings'>
-            <ListingContainer listings={this.state.listings}/>
-          </Route>
-        </Router>
+        <Route exact path='/'>
+          <Login />
+        </Route>
+        <Route path='/areas'>
+          <AreaContainer areas={this.state.areas} />
+        </Route>
       </div>
     )
   }
