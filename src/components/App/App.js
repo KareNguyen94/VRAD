@@ -29,7 +29,7 @@ class App extends Component {
         return Promise.all(areaPromises);
       })
       .then(areas => this.setState({ areas }))
-      .catch(error => console.log(error))
+      .catch(error => console.log(error.message))
   }
 
   fetchAreaDetails = (area) => {
@@ -41,13 +41,16 @@ class App extends Component {
             details = {...details, listings}
             return {...area, details}
           })
+          .catch(error => console.log(error.message))
       })
+      .catch(error => console.log(error.message))
   }
 
   fetchListings = (details) => {
     const listingPromises = details.listings.map(listing => {
       return fetch('http://localhost:3001' + listing)
         .then(response => response.json())
+        .catch(error => console.log(error.message))
     });
     return Promise.all(listingPromises);
   }
