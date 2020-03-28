@@ -23,6 +23,10 @@ class App extends Component {
     this.setState({user: user})
   }
 
+  logoutUser = () => {
+    this.setState({user: null})
+  }
+
   componentDidMount() {
     this.fetchAreas();
   }
@@ -64,7 +68,7 @@ class App extends Component {
   render () {
     return (
       <div>
-        <Header user={this.state.user}/>
+        <Header logoutUser={this.logoutUser} user={this.state.user}/>
         <Router>
           <Route exact path='/'>
             <Login loginUser={this.loginUser} user={this.state.user}/>
