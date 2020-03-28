@@ -42,6 +42,7 @@ class ListingDetail extends Component {
         <ul>
           {features.map(feature => <li key={feature}>{feature}</li>)}
         </ul>
+        <button>Favorite</button>
       </article>
     )
   }
