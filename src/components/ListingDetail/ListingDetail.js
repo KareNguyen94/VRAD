@@ -34,7 +34,7 @@ class ListingDetail extends Component {
         <h2>{name}</h2>
         <h3>{street}, {zip}</h3>
         <div className='images'>
-          {imagePaths.map(image => <img src={image} alt='' key={listing_id} />)}
+          {imagePaths.map((image, index) => <img src={image} alt='' key={index} />)}
         </div>
         <h3>{beds} Bedrooms, {baths} Bathrooms</h3>
         <h3>${cost_per_night}</h3>

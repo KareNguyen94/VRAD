@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link, Route, Redirect } from "react-router-dom";
+import { Link, Route } from "react-router-dom";
 import './App.css';
 import Login from '../Login/Login.js';
 import AreaContainer from '../AreaContainer/AreaContainer.js';
