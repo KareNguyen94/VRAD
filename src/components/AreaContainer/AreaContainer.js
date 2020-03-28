@@ -5,7 +5,7 @@ const AreaContainer = ({ areas }) => {
   return (
     <section>
       {areas.map(area => (
-        <AreaCard {...area} key={area.details.id}/>
+        <AreaCard {...area} key={area.details}/>
       ))}
     </section>
   )
