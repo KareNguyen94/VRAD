@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import './Login.css';
+import { Redirect } from 'react-router-dom'
 
 class Login extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       name: '',
       email: '',
@@ -26,12 +27,22 @@ class Login extends Component {
 
   onLogin = (event) => {
     event.preventDefault();
-    if (!this.state.name || !this.state.email || !this.state.purpose) {
-      this.setState({error: '*All input fields required'})
-    }
+      if (!this.state.name || !this.state.email || !this.state.purpose) {
+        this.setState({error: '*All input fields required'})
+      } else {
+        let user = {
+          name: this.state.name,
+          email: this.state.email,
+          purpose: this.state.purpose
+        }
+        this.props.loginUser(user)
+      }
   }
 
   render() {
+    if (this.props.user) {
+      return <Redirect to='/areas'/>
+    }
     return (
       <form>
         <input
@@ -48,18 +59,12 @@ class Login extends Component {
           value={this.state.email}
           onChange={this.updateEmailState}>
         </input>
-        <select defaultValue='' onChange={this.updatePurposeState} required>
-          <option value='' disabled>Choose a purpose</option>
-          <option value='business'>Business</option>
-          <option value='vacation'>Vacation</option>
-          <option value='other'>Other</option>
-        </select>
         <input
           id='business-radio'
           type='radio'
           name='purpose'
           value='business'
-          onChange={this.updatePurposeState}>
+          onClick={(event) => this.updatePurposeState(event)}>
         </input>
         <label htmlFor='business-radio'>Business</label>
         <input
@@ -67,7 +72,7 @@ class Login extends Component {
           type='radio'
           name='purpose'
           value='vacation'
-          onChange={this.updatePurposeState}>
+          onClick={(event) => this.updatePurposeState(event)}>
         </input>
         <label htmlFor='vacation-radio'>Vacation</label>
         <input
@@ -75,12 +80,14 @@ class Login extends Component {
           type='radio'
           name='purpose'
           value='other'
-          onChange={this.updatePurposeState}>
+          onClick={(event) => this.updatePurposeState(event)}>
         </input>
         <label htmlFor='other-radio'>Other</label>
         <button
-        onClick={this.onLogin}
-        type='submit'>
+        onClick={(event) => this.onLogin(event)}
+        type='submit'
+        name='submit-button'
+        >
         Login</button>
         <p>{this.state.error}</p>
       </form>
