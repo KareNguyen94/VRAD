@@ -64,7 +64,7 @@ class App extends Component {
             const { area_id, listing_id } = match.params;
             return <ListingDetail
               area_id={area_id}
-              listing_id={listing_id}
+              listing_id={Number(listing_id)}
               toggleFavorite={this.toggleFavorite} />
           }} />
         <Route path='/favorites'>

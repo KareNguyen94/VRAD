@@ -42,7 +42,7 @@ class ListingDetail extends Component {
         <ul>
           {features.map(feature => <li key={feature}>{feature}</li>)}
         </ul>
-        <button>Favorite</button>
+        <button onClick={() => this.props.toggleFavorite(listing_id)}>Favorite</button>
       </article>
     )
   }
