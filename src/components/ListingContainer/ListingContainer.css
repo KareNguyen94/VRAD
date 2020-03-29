@@ -1,0 +1,12 @@
+.listing-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  flex-wrap: wrap;
+}
+
+.listing-container-h2 {
+  text-align: center;
+  padding-top: 15px;
+  text-decoration: underline;
+}

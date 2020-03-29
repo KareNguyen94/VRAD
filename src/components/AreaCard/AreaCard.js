@@ -25,7 +25,7 @@ class AreaCard extends Component {
     const { id, name, about } = this.state;
     return (
       <article className='area-card'>
-        <h2>{name}</h2>
+        <h2 className='area-name'>{name}</h2>
         <h3>{this.props.area}</h3>
         <p>{about}</p>
         <Link to={`/areas/${id}/listings`}>

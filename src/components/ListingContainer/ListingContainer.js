@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import ListingCard from '../ListingCard/ListingCard.js';
+import './ListingContainer.css'
 
 class ListingContainer extends Component {
   constructor(props) {
@@ -19,15 +20,17 @@ class ListingContainer extends Component {
 
   render() {
     return (
-      <section>
+      <div className='listing-container-h2'>
         <h2>Listings for {this.props.area_id}</h2>
-        {this.state.listings.map(listing => {
-          return <ListingCard
+        <section className='listing-container'>
+          {this.state.listings.map(listing => {
+            return <ListingCard
             listing={listing}
             key={listing}
             toggleFavorite={this.props.toggleFavorite} />
-        })}
-      </section>
+          })}
+        </section>
+      </div>
     );
   }
 }

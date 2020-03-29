@@ -1,7 +1,11 @@
 .area-card {
   border: 1px solid black;
   margin-bottom: 20px;
-  background-color: rgb(161, 176, 191);
+  background-color: rgb(185, 206, 227);
   padding: 1%;
-  /* text-align: center; */
+}
+
+.area-name {
+  text-decoration: underline;
+  text-align: center;
 }
