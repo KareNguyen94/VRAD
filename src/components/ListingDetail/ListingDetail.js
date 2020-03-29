@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './ListingDetail.css'
 
 class ListingDetail extends Component {
   constructor(props) {
@@ -30,19 +31,19 @@ class ListingDetail extends Component {
       `/images/${listing_id}_c.jpg`
     ];
     return (
-      <article>
+      <article className='listing-detail'>
         <h2>{name}</h2>
         <h3>{street}, {zip}</h3>
         <div className='images'>
-          {imagePaths.map((image, index) => <img src={image} alt='' key={index} />)}
+          {imagePaths.map((image, index) => <img className='listing-img' src={image} alt='' key={index} />)}
         </div>
         <h3>{beds} Bedrooms, {baths} Bathrooms</h3>
         <h3>${cost_per_night}</h3>
-        <h3>Features</h3>
+        <h3>Features:</h3>
         <ul>
-          {features.map(feature => <li key={feature}>{feature}</li>)}
+          {features.map(feature => <li key={feature}>{'-' + feature}</li>)}
         </ul>
-        <button onClick={() => this.props.toggleFavorite(listing_id)}>Favorite</button>
+        <button className='buttons'onClick={() => this.props.toggleFavorite(listing_id)}>Favorite</button>
       </article>
     )
   }
