@@ -17,7 +17,7 @@
           <h3>Welcome {user.name}</h3>
           <p>Let's plan your {user.purpose} trip!</p>
           <Link to='/favorites'>
-            <button>Favorites</button>
+            <button>Favorites ({user.favorites.length})</button>
           </Link>
           <button onClick={() => logoutUser()}>Sign out</button>
         </header>

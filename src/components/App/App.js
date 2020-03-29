@@ -58,6 +58,7 @@ class App extends Component {
             const { area_id } = match.params;
             return <ListingContainer
               area_id={area_id}
+              favorites={this.state.user.favorites}
               toggleFavorite={this.toggleFavorite} />
           }} />
         <Route path='/areas/:area_id/listings/:listing_id' render={ ({ match }) => {
@@ -65,11 +66,13 @@ class App extends Component {
             return <ListingDetail
               area_id={area_id}
               listing_id={Number(listing_id)}
+              favorites={this.state.user ? this.state.user.favorites : []}
               toggleFavorite={this.toggleFavorite} />
           }} />
         <Route path='/favorites'>
           <Favorites
             listings={this.state.user ? this.state.user.favorites : []}
+            favorites={this.state.user ? this.state.user.favorites : []}
             toggleFavorite={this.toggleFavorite} />
         </Route>
       </div>
