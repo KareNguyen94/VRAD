@@ -22,7 +22,10 @@ class ListingContainer extends Component {
       <section>
         <h2>Listings for {this.props.area_id}</h2>
         {this.state.listings.map(listing => {
-          return <ListingCard listing={listing} key={listing} />
+          return <ListingCard
+            listing={listing}
+            key={listing}
+            toggleFavorite={this.props.toggleFavorite} />
         })}
       </section>
     );

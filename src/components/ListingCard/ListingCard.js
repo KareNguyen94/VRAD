@@ -27,6 +27,7 @@ class ListingCard extends Component {
         <Link to={`/areas/${area_id}/listings/${listing_id}`}>
           <button>More details</button>
         </Link>
+        <button onClick={() => this.props.toggleFavorite(listing_id)}>Favorite</button>
       </article>
     )
   }

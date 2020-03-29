@@ -33,7 +33,8 @@ class Login extends Component {
         let user = {
           name: this.state.name,
           email: this.state.email,
-          purpose: this.state.purpose
+          purpose: this.state.purpose,
+          favorites: []
         }
         this.props.loginUser(user)
       }
