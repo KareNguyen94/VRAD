@@ -37,7 +37,7 @@ class ListingCard extends Component {
         <Link to={`/areas/${area_id}/listings/${listing_id}`}>
           <button className='buttons more-button'>More details</button>
         </Link>
-        <button className='buttons' className={buttonStyle} onClick={this.favoriteListing}>Favorite</button>
+        <button  className={buttonStyle} onClick={this.favoriteListing}>Favorite</button>
       </article>
     )
   }

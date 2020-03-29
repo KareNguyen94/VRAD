@@ -54,7 +54,7 @@ class ListingDetail extends Component {
         <ul>
           {features.map(feature => <li key={feature}>{'-' + feature}</li>)}
         </ul>
-        <button lassName='buttons' className={buttonStyle} onClick={this.favoriteListing}>Favorite</button>
+        <button className={buttonStyle} onClick={this.favoriteListing}>Favorite</button>
       </article>
     )
   }
