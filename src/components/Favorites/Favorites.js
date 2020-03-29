@@ -1,7 +1,7 @@
 import React from 'react';
 import ListingCard from '../ListingCard/ListingCard.js';
 
-const Favorites = ({ listings, toggleFavorite }) => {
+const Favorites = ({ listings, favorites, toggleFavorite }) => {
   if (listings.length === 0) {
     return (
       <section>
@@ -16,6 +16,7 @@ const Favorites = ({ listings, toggleFavorite }) => {
       {listings.map(listing => {
         return <ListingCard
           listing={'/api/v1/listings/' + listing}
+          favorites={favorites}
           key={listing}
           toggleFavorite={toggleFavorite} />
       })}

@@ -27,6 +27,7 @@ class ListingContainer extends Component {
             return <ListingCard
             listing={listing}
             key={listing}
+            favorites={this.props.favorites}
             toggleFavorite={this.props.toggleFavorite} />
           })}
         </section>

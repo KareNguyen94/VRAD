@@ -16,6 +16,14 @@ class ListingDetail extends Component {
     fetch('http://localhost:3001/api/v1/listings/' + this.props.listing_id)
       .then(response => response.json())
       .then(data => this.setState({...data}))
+      .then(() => {
+        this.props.favorites.includes(this.state.listing_id) && this.setState({ isFavorited: true });
+      })
+  }
+
+  favoriteListing = (event) => {
+    this.props.toggleFavorite(this.state.listing_id);
+    this.setState(previousState => ({ isFavorited: !previousState.isFavorited }));
   }
 
   render() {
@@ -30,6 +38,9 @@ class ListingDetail extends Component {
       `/images/${listing_id}_b.jpg`,
       `/images/${listing_id}_c.jpg`
     ];
+    const buttonStyle = this.state.isFavorited ?
+      'favorited' :
+      '';
     return (
       <article className='listing-detail'>
         <h2>{name}</h2>
@@ -43,7 +54,7 @@ class ListingDetail extends Component {
         <ul>
           {features.map(feature => <li key={feature}>{'-' + feature}</li>)}
         </ul>
-        <button className='buttons'onClick={() => this.props.toggleFavorite(listing_id)}>Favorite</button>
+        <button lassName='buttons' className={buttonStyle} onClick={this.favoriteListing}>Favorite</button>
       </article>
     )
   }
