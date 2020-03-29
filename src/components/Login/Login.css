@@ -1,0 +1,38 @@
+* {
+  margin: 0px;
+  padding: 0px;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 15%;
+  background-image: url('https://www.rmpds.org/system/user_files/Images/iStock-680820204.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+
+.radio-buttons {
+ padding-right: 15px;
+}
+
+.all-inputs {
+  width: 225px;
+  height: 30px;
+  border: 1px black solid;
+  font-size: 1em;
+}
+
+input {
+  margin-bottom: 20px;
+  padding: 5px;
+}
+
+.login-button {
+  width: 235px;
+  height: 35px;
+  border: 1px black solid;
+  font-size: 1em;
+}
