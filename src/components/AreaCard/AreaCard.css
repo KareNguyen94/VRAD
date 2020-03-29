@@ -1,0 +1,7 @@
+.area-card {
+  border: 1px solid black;
+  margin-bottom: 20px;
+  background-color: rgb(161, 176, 191);
+  padding: 1%;
+  /* text-align: center; */
+}
