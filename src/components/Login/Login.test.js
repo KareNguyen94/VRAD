@@ -9,17 +9,11 @@ describe('Login', () => {
       <Router>
         <Login />
       </Router>);
-      const nameInput = getByPlaceholderText('Your name');
-      const emailInput = getByPlaceholderText('Your email address');
-      const businessInput = getByLabelText('Business');
-      const vacationInput = getByLabelText('Vacation');
-      const otherInput = getByLabelText('Other');
-      const loginButton = getByText('Login');
-      expect(nameInput).toBeInTheDocument();
-      expect(emailInput).toBeInTheDocument();
-      expect(businessInput).toBeInTheDocument();
-      expect(vacationInput).toBeInTheDocument();
-      expect(otherInput).toBeInTheDocument();
-      expect(loginButton).toBeInTheDocument();
+      expect(getByPlaceholderText('Your name')).toBeInTheDocument();
+      expect(getByPlaceholderText('Your email address')).toBeInTheDocument();
+      expect(getByLabelText('Business')).toBeInTheDocument();
+      expect(getByLabelText('Vacation')).toBeInTheDocument();
+      expect(getByLabelText('Other')).toBeInTheDocument();
+      expect(getByText('Login')).toBeInTheDocument();
     });
 })
