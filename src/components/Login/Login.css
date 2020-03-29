@@ -30,7 +30,7 @@ input {
   padding: 5px;
 }
 
-button {
+.login-button {
   width: 235px;
   height: 35px;
   border: 1px black solid;

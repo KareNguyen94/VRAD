@@ -15,12 +15,14 @@
       return (
         <header>
           <h1>VRAD</h1>
-          <h3>Welcome {user.name}</h3>
-          <p>Let's plan your {user.purpose} trip!</p>
+          <div>
+            <h3>Welcome {user.name}</h3>
+            <p>Let's plan your {user.purpose} trip!</p>
           <Link to='/favorites'>
-            <button>Favorites</button>
+            <button className='buttons fav-button'>Favorites</button>
           </Link>
-          <button onClick={() => logoutUser()}>Sign out</button>
+          <button className='buttons' onClick={() => logoutUser()}>Sign out</button>
+          </div>
         </header>
       )
     }

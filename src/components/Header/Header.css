@@ -1,4 +1,26 @@
 header {
-  font-size: 25px;
+  border: 1px solid black;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  font-size: 2.5em;
+}
+
+h3 {
+  font-size: 1.5em;
+}
+
+.buttons {
+  width: 100px;
+  height: 20px;
   border: 1px solid black;
 }
+
+.fav-button {
+  margin-right: 130px;
+}
+

@@ -92,6 +92,7 @@ class Login extends Component {
         onClick={(event) => this.onLogin(event)}
         type='submit'
         name='submit-button'
+        className='login-button'
         >
         Login</button>
         <p>{this.state.error}</p>
