@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import './ListingCard.css'
 
 class ListingCard extends Component {
   constructor(props) {
@@ -30,13 +31,13 @@ class ListingCard extends Component {
       'favorited' :
       '';
     return (
-      <article>
+      <article className='listing-card'>
         <h2>{name}</h2>
-        <img src={imagePath} alt=''></img>
+        <img className='listing-img' src={imagePath} alt=''></img>
         <Link to={`/areas/${area_id}/listings/${listing_id}`}>
-          <button>More details</button>
+          <button className='buttons more-button'>More details</button>
         </Link>
-        <button className={buttonStyle} onClick={this.favoriteListing}>Favorite</button>
+        <button  className={buttonStyle} onClick={this.favoriteListing}>Favorite</button>
       </article>
     )
   }

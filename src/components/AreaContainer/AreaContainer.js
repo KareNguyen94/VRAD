@@ -3,7 +3,7 @@ import AreaCard from '../AreaCard/AreaCard.js';
 
 const AreaContainer = ({ areas }) => {
   return (
-    <section>
+    <section className='area-container'>
       {areas.map(area => (
         <AreaCard {...area} key={area.details}/>
       ))}
