@@ -1,9 +1,15 @@
 import React from 'react';
+import { BrowserRouter as Router } from 'react-router-dom';
 import { render } from '@testing-library/react';
 import App from './App';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/learn react/i);
-  expect(linkElement).toBeInTheDocument();
-});
+describe('App', () => {
+  it('renders correctly', () => {
+    const { getByText } = render(
+      <Router>
+        <App />
+      </Router>);
+      const appHeader = getByText('VRAD');
+      expect(appHeader).toBeInTheDocument();
+    });
+})
