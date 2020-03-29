@@ -1,5 +1,7 @@
 * {
   margin: 0px;
+  padding: 0px;
+  font-size: 1em;
 }
 
 .login-form {
@@ -7,10 +9,10 @@
   flex-direction: column;
   align-items: center;
   padding-top: 15%;
-  background-image: url('https://i.pinimg.com/originals/d0/19/48/d019481e7d8296f17a05916dfd274432.jpg');
+  background-image: url('https://www.rmpds.org/system/user_files/Images/iStock-680820204.jpg');
   background-repeat: no-repeat;
-  background-size: auto;
-  height: 75vh;
+  background-size: cover;
+  height: 100vh;
 }
 
 .radio-buttons {
@@ -18,13 +20,14 @@
 }
 
 .all-inputs {
-  width: 230px;
-  height: 35px;
+  width: 225px;
+  height: 30px;
   border: 1px black solid;
 }
 
 input {
   margin-bottom: 20px;
+  padding: 5px;
 }
 
 button {
