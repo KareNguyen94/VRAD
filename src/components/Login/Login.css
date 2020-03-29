@@ -1,7 +1,6 @@
 * {
   margin: 0px;
   padding: 0px;
-  font-size: 1em;
 }
 
 .login-form {
@@ -23,6 +22,7 @@
   width: 225px;
   height: 30px;
   border: 1px black solid;
+  font-size: 1em;
 }
 
 input {
@@ -34,4 +34,5 @@ button {
   width: 235px;
   height: 35px;
   border: 1px black solid;
+  font-size: 1em;
 }
