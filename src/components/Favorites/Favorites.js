@@ -2,7 +2,7 @@ import React from 'react';
 import ListingCard from '../ListingCard/ListingCard.js';
 
 const Favorites = ({ listings, favorites, toggleFavorite }) => {
-  if (listings.length === 0) {
+  if (favorites.length === 0) {
     return (
       <section>
         <h2>Favorites</h2>
@@ -13,11 +13,11 @@ const Favorites = ({ listings, favorites, toggleFavorite }) => {
   return (
     <section>
       <h2>Favorites</h2>
-      {listings.map(listing => {
+      {favorites.map(listing_id => {
         return <ListingCard
-          listing={'/api/v1/listings/' + listing}
+          listing={'/api/v1/listings/' + listing_id}
           favorites={favorites}
-          key={listing}
+          key={listing_id}
           toggleFavorite={toggleFavorite} />
       })}
     </section>

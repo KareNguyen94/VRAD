@@ -71,7 +71,6 @@ class App extends Component {
           }} />
         <Route path='/favorites'>
           <Favorites
-            listings={this.state.user ? this.state.user.favorites : []}
             favorites={this.state.user ? this.state.user.favorites : []}
             toggleFavorite={this.toggleFavorite} />
         </Route>
