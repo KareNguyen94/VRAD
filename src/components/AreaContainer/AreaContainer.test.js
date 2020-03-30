@@ -1,10 +1,10 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { render, waitForElement } from '@testing-library/react';
+import { render } from '@testing-library/react';
 import AreaContainer from './AreaContainer';
 
 describe('AreaContainer', () => {
-  it('renders correctly', async () => {
+  it('renders correctly', () => {
     const areas = [
       {
         area: 'RiNo',
