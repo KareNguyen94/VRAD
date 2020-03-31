@@ -1,14 +1,29 @@
-import React from 'react';
+import React, { Component } from 'react';
 import AreaCard from '../AreaCard/AreaCard.js';
+import { getAreas } from '../../apiCalls';
 
-const AreaContainer = ({ areas }) => {
-  return (
-    <section className='area-container'>
-      {areas.map(area => (
-        <AreaCard {...area} key={area.details}/>
-      ))}
-    </section>
-  )
+class AreaContainer extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      areas: []
+    }
+  }
+
+  componentDidMount() {
+    getAreas()
+      .then(data => this.setState({...data}));
+  }
+
+  render() {
+    return (
+      <section className='area-container'>
+        {this.state.areas.map(area => (
+          <AreaCard {...area} key={area.details}/>
+        ))}
+      </section>
+    )
+  }
 }
 
 export default AreaContainer;
