@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import './ListingDetail.css'
+import { getListing } from '../../apiCalls.js';
+import './ListingDetail.css';
 
 class ListingDetail extends Component {
   constructor(props) {
@@ -13,11 +14,11 @@ class ListingDetail extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/api/v1/listings/' + this.props.listing_id)
-      .then(response => response.json())
+    getListing('/api/v1/listings/' + this.props.listing_id)
       .then(data => this.setState({...data}))
       .then(() => {
-        this.props.favorites.includes(this.state.listing_id) && this.setState({ isFavorited: true });
+        this.props.favorites.includes(this.state.listing_id)
+          && this.setState({ isFavorited: true });
       })
   }
 

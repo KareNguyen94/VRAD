@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
 import { render, waitFor } from '@testing-library/react';
 import AreaContainer from './AreaContainer';
-import { getAreas } from '../../apiCalls.js';
+import { getAreas, getAreaDetails } from '../../apiCalls.js';
 jest.mock('../../apiCalls.js');
 
 describe('AreaContainer', () => {
@@ -19,6 +19,7 @@ describe('AreaContainer', () => {
         }
       ]
     })
+    getAreaDetails.mockResolvedValue({});
     const { getByText } = render(
       <Router>
         <AreaContainer />

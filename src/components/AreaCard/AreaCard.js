@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
-import './AreaCard.css'
+import { getAreaDetails } from '../../apiCalls.js';
+import './AreaCard.css';
 
 class AreaCard extends Component {
   constructor(props) {
@@ -14,11 +15,8 @@ class AreaCard extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001' + this.props.details)
-      .then(response => response.json())
-      .then(data => {
-        this.setState({...data})
-      })
+    getAreaDetails(this.props.details)
+      .then(data => this.setState({...data}))
   }
 
   render() {
