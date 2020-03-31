@@ -1,68 +1,24 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# VRAD 🏂
+(Vacation Rentals Around Denver)  
+a React web app for organizing Airbnb data!
 
-## Available Scripts
+### Introduction
+This is an app in React that organizes Airbnb listing data with a user-friendly UX/UI. The app uses the fetch() method to retrieve data from a live backend server which runs locally on the user's machine. A major learning goal for this project was to create a robust testing suite utilizing Jest and React-testing-library to ensure all components function correctly.
 
-In the project directory, you can run:
+### Screenshots
+![screenshot 1](https://user-images.githubusercontent.com/52137660/78073924-fe5f4d00-735e-11ea-9313-47501106d2a1.png)
+![screenshot 2](https://user-images.githubusercontent.com/52137660/78073947-07e8b500-735f-11ea-9dba-039f7e20b059.png)
+![screenshot 3](https://user-images.githubusercontent.com/52137660/78073971-1040f000-735f-11ea-8b37-9baa3031fde4.png)
+![screenshot 4](https://user-images.githubusercontent.com/52137660/78073985-1767fe00-735f-11ea-83e1-3f51d908033e.png)
+![screenshot 5](https://user-images.githubusercontent.com/52137660/78073991-19ca5800-735f-11ea-8653-e6860f117840.png)
 
-### `npm start`
+### Technologies Used
+- HTML
+- CSS
+- React
+- Jest/React-testing-library
+- NPM
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+### This project was created by:
+Jonathan T. & Karen N.
