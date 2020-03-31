@@ -47,7 +47,7 @@ class ListingCard extends Component {
 
 export default ListingCard;
 
-ListingCard.PropTypes = {
+ListingCard.propTypes = {
   listing: PropTypes.string,
   favorites: PropTypes.array,
   toggleFavorite: PropTypes.func

@@ -104,7 +104,7 @@ class Login extends Component {
 
 export default Login;
 
-Login.PropTypes = {
+Login.propTypes = {
   user: PropTypes.shape({
     name: PropTypes.string,
     email: PropTypes.any,
