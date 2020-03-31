@@ -27,6 +27,6 @@ const Favorites = ({ favorites, toggleFavorite }) => {
 
 export default Favorites;
 
-Favorites.PropTypes = {
+Favorites.propTypes = {
   favorites: PropTypes.array
 }

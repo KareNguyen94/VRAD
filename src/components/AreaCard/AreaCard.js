@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getAreaDetails } from '../../apiCalls.js';
 import './AreaCard.css';
+import PropTypes from 'prop-types';
 
 class AreaCard extends Component {
   constructor(props) {
@@ -36,7 +37,7 @@ class AreaCard extends Component {
 
 export default AreaCard;
 
-AreaCard.PropTypes = {
+AreaCard.propTypes = {
   area: PropTypes.string,
   details: PropTypes.string
 }
