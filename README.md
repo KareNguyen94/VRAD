@@ -1,4 +1,4 @@
-# VRAD 🏂
+# VRAD
 (Vacation Rentals Around Denver)  
 a React web app for organizing Airbnb data!
 
