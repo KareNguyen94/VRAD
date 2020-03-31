@@ -1,7 +1,8 @@
 import React from 'react';
 import ListingCard from '../ListingCard/ListingCard.js';
+import PropTypes from 'prop-types';
 
-const Favorites = ({ listings, favorites, toggleFavorite }) => {
+const Favorites = ({ favorites, toggleFavorite }) => {
   if (favorites.length === 0) {
     return (
       <section>
@@ -25,3 +26,7 @@ const Favorites = ({ listings, favorites, toggleFavorite }) => {
 }
 
 export default Favorites;
+
+Favorites.PropTypes = {
+  favorites: PropTypes.array
+}

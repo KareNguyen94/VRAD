@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import ListingCard from '../ListingCard/ListingCard.js';
 import { getAreaDetails } from '../../apiCalls.js';
 import './ListingContainer.css';
+import PropTypes from 'prop-types';
 
 class ListingContainer extends Component {
   constructor(props) {
@@ -35,3 +36,9 @@ class ListingContainer extends Component {
 }
 
 export default ListingContainer;
+
+ListingContainer.PropTypes = {
+  area_id: PropTypes.string,
+  favorites: PropTypes.array,
+  toggleFavorite: PropTypes.func
+}

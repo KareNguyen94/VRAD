@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import AreaCard from '../AreaCard/AreaCard.js';
 import { getAreas } from '../../apiCalls';
 
+
 class AreaContainer extends Component {
   constructor(props) {
     super(props);

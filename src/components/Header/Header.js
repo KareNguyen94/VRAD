@@ -1,6 +1,7 @@
   import React from 'react';
   import { Link } from 'react-router-dom';
   import './Header.css'
+  import PropTypes from 'prop-types';
 
   const Header = ({user, logoutUser}) => {
 
@@ -29,3 +30,12 @@
   }
 
   export default Header;
+
+  Header.PropTypes = {
+    user: PropTypes.shape({
+      name: PropTypes.string,
+      email: PropTypes.any,
+      purpose: PropTypes.string,
+      favorites: PropTypes.array
+    })
+  }

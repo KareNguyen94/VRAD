@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getListing } from '../../apiCalls.js';
 import './ListingCard.css'
+import PropTypes from 'prop-types';
 
 class ListingCard extends Component {
   constructor(props) {
@@ -45,3 +46,9 @@ class ListingCard extends Component {
 }
 
 export default ListingCard;
+
+ListingCard.PropTypes = {
+  listing: PropTypes.string,
+  favorites: PropTypes.array,
+  toggleFavorite: PropTypes.func
+}
