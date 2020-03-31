@@ -64,7 +64,7 @@ class ListingDetail extends Component {
 
 export default ListingDetail;
 
-ListingDetail.PropTypes = {
+ListingDetail.propTypes = {
   area_id: PropTypes.string,
   listing_id: PropTypes.number,
   favorites: PropTypes.array,

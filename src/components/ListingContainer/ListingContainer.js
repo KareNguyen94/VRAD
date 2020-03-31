@@ -37,7 +37,7 @@ class ListingContainer extends Component {
 
 export default ListingContainer;
 
-ListingContainer.PropTypes = {
+ListingContainer.propTypes = {
   area_id: PropTypes.string,
   favorites: PropTypes.array,
   toggleFavorite: PropTypes.func

@@ -31,7 +31,7 @@
 
   export default Header;
 
-  Header.PropTypes = {
+  Header.propTypes = {
     user: PropTypes.shape({
       name: PropTypes.string,
       email: PropTypes.any,
