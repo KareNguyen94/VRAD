@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { getListing } from '../../apiCalls.js';
 import './ListingDetail.css';
+import PropTypes from 'prop-types';
 
 class ListingDetail extends Component {
   constructor(props) {
@@ -62,3 +63,10 @@ class ListingDetail extends Component {
 }
 
 export default ListingDetail;
+
+ListingDetail.PropTypes = {
+  area_id: PropTypes.string,
+  listing_id: PropTypes.number,
+  favorites: PropTypes.array,
+  toggleFavorite: PropTypes.func,
+}

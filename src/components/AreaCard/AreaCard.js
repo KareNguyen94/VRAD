@@ -35,3 +35,8 @@ class AreaCard extends Component {
 }
 
 export default AreaCard;
+
+AreaCard.PropTypes = {
+  area: PropTypes.string,
+  details: PropTypes.string
+}
