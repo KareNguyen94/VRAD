@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { render } from '@testing-library/react';
+import { render, fireEvent } from '@testing-library/react';
 import Header from './Header';
 
 describe('Header', () => {
@@ -34,4 +34,31 @@ describe('Header', () => {
     expect(favoritesButton).toBeInTheDocument();
     expect(signOutButton).toBeInTheDocument();
   });
-})
+
+  it('should run logout finction', () => {
+    const mockLogout = jest.fn();
+    const mockUser = {name: 'mockName', email: 'mockEmail@yahoo.com', purpose: 'business', favorites: []}
+    const { getByText } = 
+    render(
+      <Router>
+        <Header logoutUser={mockLogout} user={mockUser} />
+      </Router>
+    );
+  
+    fireEvent.click(getByText('Sign out'));
+    expect(mockLogout).toHaveBeenCalled();
+  });
+
+  it('should link to the favorites route', () => {
+    const mockUser = {favorites: []}
+    const { getByText } =
+    render(
+      <Router>
+        <Header user={mockUser} />
+      </Router>
+    );
+
+      fireEvent.click(getByText('Favorites (0)'));
+      expect(location.pathname).toBe('/favorites');
+  });
+});
