@@ -35,14 +35,6 @@ class App extends Component {
     this.setState({ user: updatedUser });
   }
 
-  componentDidMount() {
-    fetch('http://localhost:3001/api/v1/areas')
-      .then(response => response.json())
-      .then(data => {
-        this.setState({...data})
-      })
-  }
-
   render () {
     return (
       <div>
@@ -52,7 +44,7 @@ class App extends Component {
           <Login loginUser={this.loginUser} user={this.state.user}/>
         </Route>
         <Route exact path='/areas'>
-          <AreaContainer areas={this.state.areas} />
+          <AreaContainer />
         </Route>
         <Route exact path='/areas/:area_id/listings' render={ ({ match }) => {
             const { area_id } = match.params;

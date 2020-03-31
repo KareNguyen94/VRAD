@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
-import { render, waitForElement } from '@testing-library/react';
+import { render, waitFor } from '@testing-library/react';
 import Favorites from './Favorites';
 
 describe('Favorites', () => {
@@ -21,7 +21,7 @@ describe('Favorites', () => {
           favorites={[3, 44]}
         />
       </Router>);
-    await waitForElement(() => getByText('Hip RiNo Party Spot'));
+    await waitFor(() => getByText('Lowkey Industrial Chic'));
 
     expect(getByText('Hip RiNo Party Spot')).toBeInTheDocument();
     expect(getByText('Lowkey Industrial Chic')).toBeInTheDocument();

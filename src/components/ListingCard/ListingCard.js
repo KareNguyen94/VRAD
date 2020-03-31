@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { getListing } from '../../apiCalls.js';
 import './ListingCard.css'
 
 class ListingCard extends Component {
@@ -11,11 +12,11 @@ class ListingCard extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001' + this.props.listing)
-      .then(response => response.json())
+    getListing(this.props.listing)
       .then(data => this.setState({...data}))
       .then(() => {
-        this.props.favorites.includes(this.state.listing_id) && this.setState({ isFavorited: true });
+        this.props.favorites.includes(this.state.listing_id)
+          && this.setState({ isFavorited: true });
       })
   }
 

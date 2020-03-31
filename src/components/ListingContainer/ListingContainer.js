@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import ListingCard from '../ListingCard/ListingCard.js';
-import './ListingContainer.css'
+import { getAreaDetails } from '../../apiCalls.js';
+import './ListingContainer.css';
 
 class ListingContainer extends Component {
   constructor(props) {
@@ -11,11 +12,8 @@ class ListingContainer extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3001/api/v1/areas/' + this.props.area_id)
-      .then(response => response.json())
-      .then(data => {
-        this.setState({...data})
-      })
+    getAreaDetails('/api/v1/areas/' + this.props.area_id)
+      .then(data => this.setState({...data}))
   }
 
   render() {
