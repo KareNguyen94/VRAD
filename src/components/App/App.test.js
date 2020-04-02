@@ -15,7 +15,7 @@ getAreas.mockResolvedValue({
 })
 
 getAreaDetails.mockResolvedValue({
-  id: 590,
+  id: '590',
   name: 'River North',
   about: '',
   listings: [

@@ -26,7 +26,7 @@ describe('ListingDetail', () => {
     const { getByText, getAllByAltText } = render(
       <Router>
         <ListingDetail
-          area_id={590}
+          area_id={'590'}
           listing_id={3}
           favorites={[]}
         />

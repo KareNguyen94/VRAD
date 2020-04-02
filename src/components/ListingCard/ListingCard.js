@@ -5,6 +5,7 @@ import './ListingCard.css'
 import PropTypes from 'prop-types';
 
 class ListingCard extends Component {
+  _isMounted = false;
   constructor(props) {
     super(props);
     this.state = {
@@ -13,12 +14,17 @@ class ListingCard extends Component {
   }
 
   componentDidMount() {
+    this._isMounted = true;
     getListing(this.props.listing)
       .then(data => this.setState({...data}))
       .then(() => {
-        this.props.favorites.includes(this.state.listing_id)
+        this._isMounted && this.props.favorites.includes(this.state.listing_id)
           && this.setState({ isFavorited: true });
       })
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   favoriteListing = (event) => {

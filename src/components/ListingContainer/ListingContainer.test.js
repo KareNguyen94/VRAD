@@ -23,7 +23,7 @@ describe('ListingContainer', () => {
     const { getByText } = render(
       <Router>
         <ListingContainer
-          area_id={590}
+          area_id={'590'}
           favorites={[]}
         />
       </Router>);

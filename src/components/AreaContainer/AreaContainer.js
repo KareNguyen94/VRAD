@@ -4,6 +4,7 @@ import { getAreas } from '../../apiCalls';
 
 
 class AreaContainer extends Component {
+  _isMounted = false;
   constructor(props) {
     super(props);
     this.state = {
@@ -12,8 +13,14 @@ class AreaContainer extends Component {
   }
 
   componentDidMount() {
+    this._isMounted = true;
     getAreas()
-      .then(data => this.setState({...data}));
+      .then(data => this._isMounted && this.setState({...data}));
+    return () => isMounted = false;
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   render() {

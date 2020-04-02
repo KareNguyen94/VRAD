@@ -5,6 +5,7 @@ import './ListingContainer.css';
 import PropTypes from 'prop-types';
 
 class ListingContainer extends Component {
+  _isMounted = false;
   constructor(props) {
     super(props);
     this.state = {
@@ -13,8 +14,13 @@ class ListingContainer extends Component {
   }
 
   componentDidMount() {
+    this._isMounted = true;
     getAreaDetails('/api/v1/areas/' + this.props.area_id)
-      .then(data => this.setState({...data}))
+      .then(data => this._isMounted && this.setState({...data}))
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   render() {

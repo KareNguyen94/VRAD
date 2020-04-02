@@ -5,6 +5,7 @@ import './AreaCard.css';
 import PropTypes from 'prop-types';
 
 class AreaCard extends Component {
+  _isMounted = false;
   constructor(props) {
     super(props);
     this.state = {
@@ -16,8 +17,13 @@ class AreaCard extends Component {
   }
 
   componentDidMount() {
+    this._isMounted = true;
     getAreaDetails(this.props.details)
-      .then(data => this.setState({...data}))
+      .then(data => this._isMounted && this.setState({...data}))
+  }
+
+  componentWillUnmount() {
+    this._isMounted = false;
   }
 
   render() {
