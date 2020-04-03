@@ -16,7 +16,6 @@ class AreaContainer extends Component {
     this._isMounted = true;
     getAreas()
       .then(data => this._isMounted && this.setState({...data}));
-    return () => isMounted = false;
   }
 
   componentWillUnmount() {
